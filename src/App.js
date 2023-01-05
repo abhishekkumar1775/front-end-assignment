@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import LoadingLayout from "./components/UI/LoadingLayout";
+import { useDispatch } from "react-redux";
+import store from "./store";
+import AllUsers from "./components/AllUsers";
+import { useEffect } from "react";
+import { fetchAllUsers } from "./store/Users/users-actions";
+import SelectedUser from "./components/SelectedUser";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <LoadingLayout />
+       */}
+      <SelectedUser />
+      <AllUsers />
     </div>
   );
 }
