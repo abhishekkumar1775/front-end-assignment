@@ -1,6 +1,4 @@
-import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import LoadingLayout from "./UI/LoadingLayout";
 import UserCard from "./UI/UserCard";
 
 const SelectedUser = () => {
